@@ -4,7 +4,7 @@ res.status(200).send({
   "tagline": "Clarifai API Package",
   "description": "Build amazing apps with the world’s best image and video recognition API.",
   "image": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAkRAAAAJDc4ZDU2MjRmLWI2N2MtNGI3YS05NDhiLWVjMmU4N2IzOGE3OA.png",
-  "repo": "https://github.com/RapidSoftwareSolutions/",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Clarifai-Package",
   "accounts": {
     "domain": "clarifai.com",
     "credentials": [

@@ -5,8 +5,7 @@ const request   = require('request');
 module.exports = (req, res) => {
     let {
         clientId,
-        clientSecret,
-        accessToken
+        clientSecret
     } = req.body.args;
 
 

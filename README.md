@@ -35,7 +35,7 @@ The tag endpoint is used to tag the contents of your images or videos. Data is i
 | Field        | Type       | Description
 |--------------|------------|----------
 | accessToken  | credentials| This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
-| urls         | JSON       | Files url.
+| urls         | JSON       | Urls with data. Send them as JSON Array. Example: ["https://samples.clarifai.com/nsfw.jpg"] or ["https://samples.clarifai.com/nsfw.jpg", "https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg"]
 | file         | String     | You can also upload an image or video from your local filesystem.
 | model        | String     | If you'd like to get tags for an image or video using a different model, you can do so by passing in a model parameter. If you omit this parameter, the API will use the default model for your application.
 | tagsLanguage | String     | By default this API call returns tags in English. You can change this default setting on the applications page or can pass in a language parameter

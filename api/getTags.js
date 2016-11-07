@@ -20,9 +20,9 @@ module.exports = (req, res) => {
 
     if(urls) {
         try {
-            urls = JSON.parse(urls);
+            if(typeof urls == 'string') urls = JSON.parse(urls);
         } catch(e) {
-            throw new Error('Invalid url JSON data. Use ["http://url.com/image.png", ...]');
+            throw new Error('Invalid urls JSON data. Use ["http://url.com/image.png", ...]');
         }
 
         for(let url in urls) {

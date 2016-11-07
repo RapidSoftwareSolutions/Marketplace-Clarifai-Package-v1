@@ -50,7 +50,7 @@ res.status(200).send({
         {
           "name": "urls",
           "type": "JSON",
-          "info": "Files url."
+          "info": "Urls with data. Send them as JSON Array."
         },
         {
           "name": "file",

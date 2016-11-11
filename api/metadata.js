@@ -19,12 +19,12 @@ res.status(200).send({
         {
           "name": "clientId",
           "type": "String",
-          "info": "Client Id This identifies which application is trying to access the API. This is unique and generated once for each application in your account.."
+          "info": "Required: Client Id This identifies which application is trying to access the API. This is unique and generated once for each application in your account.."
         },
         {
           "name": "clientSecret",
           "type": "String",
-          "info": "This provides security when authorizing with the API. This is unique and generated once for each application in your account."
+          "info": "Required: This provides security when authorizing with the API. This is unique and generated once for each application in your account."
         }
       ],
       "callbacks": [
@@ -45,32 +45,32 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
+          "info": "Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         },
         {
           "name": "urls",
           "type": "JSON",
-          "info": "Urls with data. Send them as JSON Array."
+          "info": "Required if file not provided: Urls with data. Send them as JSON Array."
         },
         {
           "name": "file",
           "type": "String",
-          "info": "You can also upload an image or video from your local filesystem."
+          "info": "Required if urls not provided: You can also upload an image or video from your local filesystem."
         },
         {
           "name": "model",
           "type": "String",
-          "info": "If you'd like to get tags for an image or video using a different model, you can do so by passing in a model parameter. If you omit this parameter, the API will use the default model for your application."
+          "info": "Optional: If you'd like to get tags for an image or video using a different model, you can do so by passing in a model parameter. If you omit this parameter, the API will use the default model for your application."
         },
         {
           "name": "tagsLanguage",
           "type": "String",
-          "info": "By default this API call returns tags in English. You can change this default setting on the applications page or can pass in a language parameter"
+          "info": "Optional: By default this API call returns tags in English. You can change this default setting on the applications page or can pass in a language parameter"
         },
         {
           "name": "selectClasses",
           "type": "String",
-          "info": "If you'd like to get the probability of a certain tag or tags, you can specify them in the  request using the select_classes parameter."
+          "info": "Optional: If you'd like to get the probability of a certain tag or tags, you can specify them in the  request using the select_classes parameter."
         }
       ],
       "callbacks": [
@@ -91,42 +91,42 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
+          "info": "Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         },
         {
           "name": "docIds",
           "type": "String",
-          "info": "Valid docids or url."
+          "info": "Required if url not provided: valid docids."
         },
         {
           "name": "url",
           "type": "String",
-          "info": "valid url or docids."
+          "info": "Required if docIds not provided: valid url."
         },
         {
           "name": "addTags",
           "type": "String",
-          "info": "Tags to add."
+          "info": "Required: Tags to add."
         },
         {
           "name": "removeTags",
           "type": "String",
-          "info": "Tags to remove."
+          "info": "Optional: Tags to remove."
         },
         {
           "name": "similarDocids",
           "type": "String",
-          "info": "Comma-separated list of url or docids that are similar to the input."
+          "info": "Optional: Comma-separated list of url or docids that are similar to the input."
         },
         {
           "name": "dissimilarDocids",
           "type": "String",
-          "info": "Comma-separated list of url or docids that are dissimilar to the input."
+          "info": "Optional: Comma-separated list of url or docids that are dissimilar to the input."
         },
         {
           "name": "searchClick",
           "type": "String",
-          "info": "Comma-separated list of search terms that generated the search result."
+          "info": "Optional: Comma-separated list of search terms that generated the search result."
         }
       ],
       "callbacks": [
@@ -147,12 +147,12 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
+          "info": "Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         },
         {
           "name": "url",
           "type": "String",
-          "info": "File url."
+          "info": "Required: File url."
         }
       ],
       "callbacks": [
@@ -173,7 +173,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
+          "info": "Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         }
       ],
       "callbacks": [
@@ -194,7 +194,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
+          "info": "Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         }
       ],
       "callbacks": [
@@ -215,7 +215,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
+          "info": "Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         }
       ],
       "callbacks": [

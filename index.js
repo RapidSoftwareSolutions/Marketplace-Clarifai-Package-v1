@@ -1,6 +1,14 @@
 'use strict';
 global.PACKAGE_NAME = "Clarifai";
 
+global.ValidationError = function(fields) {
+    this.text   = 'Please, check and fill in required fields';
+    this.fields = fields || [];
+}
+
+ValidationError.prototype = Object.create(Error.prototype);
+ValidationError.prototype.constructor = ValidationError;
+
 const express       = require('express');
 const request       = require('request');
 const bodyParser    = require('body-parser');
@@ -31,7 +39,7 @@ for(let route in API) {
             r.contextWrites[to] = JSON.parse(response);
         } catch(e) {
             r.callback          = 'error';
-            r.contextWrites[to] =  typeof e == 'object' ? e.message ? e.message : JSON.stringify(e) : e;
+            r.contextWrites[to] =  typeof e == 'object' ? e.message ? e.message : e : e;
         }
 
         res.status(200).send(r);

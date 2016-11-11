@@ -10,7 +10,7 @@ module.exports = (req, res) => {
         url
     } = req.body.args;
 
-    if(!accessToken) throw new Error('Required fields: accessToken');
+    if(!accessToken) throw new ValidationError(['accessToken']);
 
     const defered = Q.defer();
 

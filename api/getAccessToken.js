@@ -9,7 +9,7 @@ module.exports = (req, res) => {
     } = req.body.args;
 
 
-    if(!clientId || !clientSecret) throw new Error('Required fields: clientId, clientSecret');
+    if(!clientId || !clientSecret) throw new ValidationError(['clientId', 'clientSecret']);
 
     let options = {
         url:    'https://api.clarifai.com/v1/token',

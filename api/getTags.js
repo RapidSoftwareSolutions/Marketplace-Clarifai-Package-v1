@@ -14,7 +14,7 @@ module.exports = (req, res) => {
         selectClasses
     } = req.body.args;
 
-    if(!accessToken) throw new Error('Required fields: accessToken');
+    if(!accessToken) throw new ValidationError(['accessToken']);
 
     let body = '';
 

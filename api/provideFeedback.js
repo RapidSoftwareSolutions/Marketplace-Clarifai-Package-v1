@@ -16,7 +16,7 @@ module.exports = (req, res) => {
         searchClick,
     } = req.body.args;
 
-    if(!accessToken || !(docIds || url)) throw new Error('Required fields: accessToken, (docIds or url)');
+    if(!accessToken || !(docIds || url)) throw new ValidationError(['accessToken', 'docIds OR url']);
 
     const defered = Q.defer();
 

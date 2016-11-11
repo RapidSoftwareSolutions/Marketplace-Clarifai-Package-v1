@@ -45,14 +45,14 @@ The tag endpoint is used to tag the contents of your images or videos. Data is i
 Single url:
 ```json
 {
-	urls: ["https://samples.clarifai.com/nsfw.jpg"]
+	"urls": ["https://samples.clarifai.com/nsfw.jpg"]
 }
 ```
 
 Multiple urls:
 ```json
 {
-	urls: ["https://samples.clarifai.com/nsfw.jpg", "https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg"]
+	"urls": ["https://samples.clarifai.com/nsfw.jpg", "https://s3-us-west-1.amazonaws.com/powr/defaults/image-slider2.jpg"]
 }
 ```
 

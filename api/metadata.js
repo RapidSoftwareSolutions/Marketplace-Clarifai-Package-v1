@@ -1,12 +1,12 @@
-module.exports.do = function(req, res){
+module.exports.do = (req, res) => {
 res.status(200).send({
-  "package": "Medium",
-  "tagline": "Medium API Package",
-  "description": "Read, write, and interact with the stories that matter most to you.",
-  "image": "https://cdn-images-1.medium.com/max/400/1*QnlI8nTg-t9G3pLrxbX9-w.png",
-  "repo": "https://github.com/RapidSoftwareSolutions/",
+  "package": "Clarifai",
+  "tagline": "Clarifai API Package",
+  "description": "Build amazing apps with the world’s best image and video recognition API.",
+  "image": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAkRAAAAJDc4ZDU2MjRmLWI2N2MtNGI3YS05NDhiLWVjMmU4N2IzOGE3OA.png",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Clarifai-Package",
   "accounts": {
-    "domain": "medium.com",
+    "domain": "clarifai.com",
     "credentials": [
       "accessToken"
     ]
@@ -14,305 +14,253 @@ res.status(200).send({
   "blocks": [
     {
       "name": "getAccessToken",
-      "description": "In order to publish on behalf of a Medium account, you will need an access token. An access token grants limited access to a user’s account. We offer two ways to acquire an access token: browser-based OAuth authentication, and self-issued access tokens.",
+      "description": "Authentication to the API is handled using OAuth2 client credentials. Each application you create has a unique Client ID and Client Secret which you will use to exchange for an Access Token. You then use this Access Token to make authorized API calls.",
       "args": [
-        {
-          "name": "code",
-          "type": "String",
-          "info": " The authorization code you received in the previous step.",
-          "required": true
-        },
         {
           "name": "clientId",
           "type": "String",
-          "info": " Your integration’s clientId",
+          "info": "Client Id This identifies which application is trying to access the API. This is unique and generated once for each application in your account..",,
           "required": true
         },
         {
           "name": "clientSecret",
           "type": "String",
-          "info": " Your integration’s clientSecret",
-          "required": true
-        },
-        {
-          "name": "redirectUri",
-          "type": "String",
-          "info": " The same redirect_uri you specified when requesting an authorization code.",
+          "info": "This provides security when authorizing with the API. This is unique and generated once for each application in your account.",,
           "required": true
         }
       ],
       "callbacks": [
         {
           "name": "error",
-          "info": "Error"
+          "info": "Error",
+          "required": false
         },
         {
           "name": "success",
-          "info": "Success"
+          "info": "Success",
+          "required": false
         }
       ]
     },
     {
-      "name": "revokeAccessToken",
-      "description": "Each access token is valid for 60 days. When an access token expires, you may request a new token using the refresh token. Refresh tokens do not expire. Both access tokens and refresh tokens may be revoked by the user at any time. You must treat both access tokens and refresh tokens like passwords and store them securely.",
-      "args": [
-        {
-          "name": "refreshToken",
-          "type": "String",
-          "info": " The authorization code you received in the previous step.",
-          "required": true
-        },
-        {
-          "name": "clientId",
-          "type": "String",
-          "info": " Your integration’s clientId",
-          "required": true
-        },
-        {
-          "name": "clientSecret",
-          "type": "String",
-          "info": " Your integration’s clientSecret",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
-      "name": "getUser",
-      "description": "Returns details of the user who has granted permission to the application.",
+      "name": "getTags",
+      "description": "The tag endpoint is used to tag the contents of your images or videos. Data is input into our system, processed with our deep learning platform and a list of tags is returned. Typical process times are in the milliseconds.",
       "args": [
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": " A valid accessToken.",
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
           "required": true
+        },
+        {
+          "name": "urls",
+          "type": "JSON",
+          "info": "Required if file not provided: Urls with data. Send them as JSON Array.",
+          "required": false
+        },
+        {
+          "name": "file",
+          "type": "String",
+          "info": "Required if urls not provided: You can also upload an image or video from your local filesystem.",
+          "required": false
+        },
+        {
+          "name": "model",
+          "type": "String",
+          "info": "Optional: If you'd like to get tags for an image or video using a different model, you can do so by passing in a model parameter. If you omit this parameter, the API will use the default model for your application.",
+          "required": false
+        },
+        {
+          "name": "tagsLanguage",
+          "type": "String",
+          "info": "Optional: By default this API call returns tags in English. You can change this default setting on the applications page or can pass in a language parameter",
+          "required": false
+        },
+        {
+          "name": "selectClasses",
+          "type": "String",
+          "info": "Optional: If you'd like to get the probability of a certain tag or tags, you can specify them in the  request using the select_classes parameter.",
+          "required": false
         }
       ],
       "callbacks": [
         {
           "name": "error",
-          "info": "Error"
+          "info": "Error",
+          "required": false
         },
         {
           "name": "success",
-          "info": "Success"
+          "info": "Success",
+          "required": false
         }
       ]
     },
     {
-      "name": "getPublicationContributors",
-      "description": "Returns a full list of publications that the user is related to in some way: This includes all publications the user is subscribed to, writes to, or edits. This endpoint offers a set of data similar to what you’ll see at https://medium.com/me/publications when logged in.",
+      "name": "provideFeedback",
+      "description": "The feedback endpoint provides the ability to give feedback to the API about images and videos that were previously tagged. This is typically used to correct errors made by our deep learning platform. Each piece of feedback helps our system learn better. Please try and provide feedback whenever you see errors.",
       "args": [
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": " A valid accessToken.",
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
           "required": true
         },
         {
-          "name": "publicationId",
+          "name": "docIds",
           "type": "String",
-          "info": " A valid publication id.",
+          "info": "Required if url not provided: valid docids.",
+          "required": false
+        },
+        {
+          "name": "url",
+          "type": "String",
+          "info": "Required if docIds not provided: valid url.",
+          "required": false
+        },
+        {
+          "name": "addTags",
+          "type": "String",
+          "info": "Tags to add.",,
           "required": true
+        },
+        {
+          "name": "removeTags",
+          "type": "String",
+          "info": "Optional: Tags to remove.",
+          "required": false
+        },
+        {
+          "name": "similarDocids",
+          "type": "String",
+          "info": "Optional: Comma-separated list of url or docids that are similar to the input.",
+          "required": false
+        },
+        {
+          "name": "dissimilarDocids",
+          "type": "String",
+          "info": "Optional: Comma-separated list of url or docids that are dissimilar to the input.",
+          "required": false
+        },
+        {
+          "name": "searchClick",
+          "type": "String",
+          "info": "Optional: Comma-separated list of search terms that generated the search result.",
+          "required": false
         }
       ],
       "callbacks": [
         {
           "name": "error",
-          "info": "Error"
+          "info": "Error",
+          "required": false
         },
         {
           "name": "success",
-          "info": "Success"
+          "info": "Success",
+          "required": false
         }
       ]
     },
     {
-      "name": "createPost",
-      "description": "Returns a full list of publications that the user is related to in some way: This includes all publications the user is subscribed to, writes to, or edits. This endpoint offers a set of data similar to what you’ll see at https://medium.com/me/publications when logged in.",
+      "name": "getDominantColors",
+      "description": "(BETA) The color endpoint is used to retrieve the dominant colors present in your images or videos. Color values are returned in the hex format. A density value is also returned to let you know how much of the color is present. In addition, colors are also mapped to their closest W3C counterparts.",
       "args": [
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": " A valid accessToken.",
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
           "required": true
         },
         {
-          "name": "authorId",
+          "name": "url",
           "type": "String",
-          "info": " A valid authorId.",
+          "info": "File url.",,
           "required": true
-        },
-        {
-          "name": "title",
-          "type": "String",
-          "info": " The title of the post. Note that this title is used for SEO and when rendering the post as a listing, but will not appear in the actual post—for that, the title must be specified in the content field as well. Titles longer than 100 characters will be ignored. In that case, a title will besynthesized from the first content in the post when it is published..",
-          "required": true
-        },
-        {
-          "name": "contentFormat",
-          "type": "String",
-          "info": " The format of the \"content\" field. There are two values, \"html\", and \"markdown\".",
-          "required": true
-        },
-        {
-          "name": "content",
-          "type": "String",
-          "info": " The body of the post, in a valid, semantic, HTMLfragment, or Markdown. Further markups may be supported in the future. For a full list of accepted HTML tags, see here. If you want your title to appear on the post page, you must also include it as part of the post content.",
-          "required": true
-        },
-        {
-          "name": "tags",
-          "type": "String",
-          "info": "Optional: Tags to classify the post. Only the first three will be used. Tags longer than 25 characters will be ignored.",
-          "required": false
-        },
-        {
-          "name": "canonicalUrl",
-          "type": "String",
-          "info": "Optional: The original home of this content, if it was originally published elsewhere.",
-          "required": false
-        },
-        {
-          "name": "publishStatus",
-          "type": "String",
-          "info": "Optional: The status of the post. Valid values are “public”, “draft”, or “unlisted”. The default is “public”.",
-          "required": false
-        },
-        {
-          "name": "license",
-          "type": "String",
-          "info": "Optional: The license of the post. Valid values are “all-rights-reserved”, “cc-40-by”, “cc-40-by-sa”, “cc-40-by-nd”, “cc-40-by-nc”, “cc-40-by-nc-nd”, “cc-40-by-nc-sa”, “cc-40-zero”, “public-domain”. The default is “all-rights-reserved”.",
-          "required": false
-        },
-        {
-          "name": "notifyFollowers",
-          "type": "String",
-          "info": "Optional: Whether to notifyFollowers that the user has published.",
-          "required": false
         }
       ],
       "callbacks": [
         {
           "name": "error",
-          "info": "Error"
+          "info": "Error",
+          "required": false
         },
         {
           "name": "success",
-          "info": "Success"
+          "info": "Success",
+          "required": false
         }
       ]
     },
     {
-      "name": "createPostUnderPublication",
-      "description": "This API allows creating a post and associating it with a publication on Medium. The request also shows this association, considering posts a collection of resources under a publication",
+      "name": "getInfo",
+      "description": "The info endpoint returns the current API details as well as any usage limits your account has.",
       "args": [
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": " A valid accessToken.",
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
           "required": true
-        },
-        {
-          "name": "publicationId",
-          "type": "String",
-          "info": " A valid publicationId.",
-          "required": true
-        },
-        {
-          "name": "title",
-          "type": "String",
-          "info": " The title of the post. Note that this title is used for SEO and when rendering the post as a listing, but will not appear in the actual post—for that, the title must be specified in the content field as well. Titles longer than 100 characters will be ignored. In that case, a title will besynthesized from the first content in the post when it is published..",
-          "required": true
-        },
-        {
-          "name": "contentFormat",
-          "type": "String",
-          "info": " The format of the \"content\" field. There are two values, \"html\", and \"markdown\".",
-          "required": true
-        },
-        {
-          "name": "content",
-          "type": "String",
-          "info": " The body of the post, in a valid, semantic, HTMLfragment, or Markdown. Further markups may be supported in the future. For a full list of accepted HTML tags, see here. If you want your title to appear on the post page, you must also include it as part of the post content.",
-          "required": true
-        },
-        {
-          "name": "tags",
-          "type": "String",
-          "info": "Optional: Tags to classify the post. Only the first three will be used. Tags longer than 25 characters will be ignored.",
-          "required": false
-        },
-        {
-          "name": "canonicalUrl",
-          "type": "String",
-          "info": "Optional: The original home of this content, if it was originally published elsewhere.",
-          "required": false
-        },
-        {
-          "name": "publishStatus",
-          "type": "String",
-          "info": "Optional: The status of the post. Valid values are “public”, “draft”, or “unlisted”. The default is “public”.",
-          "required": false
-        },
-        {
-          "name": "license",
-          "type": "String",
-          "info": "Optional: The license of the post. Valid values are “all-rights-reserved”, “cc-40-by”, “cc-40-by-sa”, “cc-40-by-nd”, “cc-40-by-nc”, “cc-40-by-nc-nd”, “cc-40-by-nc-sa”, “cc-40-zero”, “public-domain”. The default is “all-rights-reserved”.",
-          "required": false
-        },
-        {
-          "name": "notifyFollowers",
-          "type": "String",
-          "info": "Optional: Whether to notifyFollowers that the user has published.",
-          "required": false
         }
       ],
       "callbacks": [
         {
           "name": "error",
-          "info": "Error"
+          "info": "Error",
+          "required": false
         },
         {
           "name": "success",
-          "info": "Success"
+          "info": "Success",
+          "required": false
         }
       ]
     },
     {
-      "name": "uploadImage",
-      "description": "Most integrations will not need to use this resource. Medium will automatically side-load any images specified by the src attribute on an <img> tag in post content when creating a post. However, if you are building a desktop integration and have local image files that you wish to send, you may use the images endpoint.",
+      "name": "getLanguages",
+      "description": "The info/languages endpoint returns all the languages that the tag API call supports.",
       "args": [
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": " A valid accessToken.",
-          "required": true
-        },
-        {
-          "name": "image",
-          "type": "String",
-          "info": " Image to upload.",
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
           "required": true
         }
       ],
       "callbacks": [
         {
           "name": "error",
-          "info": "Error"
+          "info": "Error",
+          "required": false
         },
         {
           "name": "success",
-          "info": "Success"
+          "info": "Success",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "getUsage",
+      "description": "The usage endpoint returns your API usage for the current month and hour.",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "credentials",
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error",
+          "required": false
+        },
+        {
+          "name": "success",
+          "info": "Success",
+          "required": false
         }
       ]
     }

@@ -16,8 +16,8 @@ Authentication to the API is handled using OAuth2 client credentials. Each appli
 
 | Field       | Type  | Description
 |-------------|-------|----------
-| clientId    | String| Client Id This identifies which application is trying to access the API. This is unique and generated once for each application in your account..
-| clientSecret| String| This provides security when authorizing with the API. This is unique and generated once for each application in your account.
+| clientId    | String| Required: Client Id This identifies which application is trying to access the API. This is unique and generated once for each application in your account..
+| clientSecret| String| Required: This provides security when authorizing with the API. This is unique and generated once for each application in your account.
 
 
 ## Clarifai.getTags
@@ -25,12 +25,12 @@ The tag endpoint is used to tag the contents of your images or videos. Data is i
 
 | Field        | Type       | Description
 |--------------|------------|----------
-| accessToken  | credentials| This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
-| urls         | JSON       | Urls with data. Send them as JSON Array.
-| file         | String     | You can also upload an image or video from your local filesystem.
-| model        | String     | If you'd like to get tags for an image or video using a different model, you can do so by passing in a model parameter. If you omit this parameter, the API will use the default model for your application.
-| tagsLanguage | String     | By default this API call returns tags in English. You can change this default setting on the applications page or can pass in a language parameter
-| selectClasses| String     | If you'd like to get the probability of a certain tag or tags, you can specify them in the  request using the select_classes parameter.
+| accessToken  | credentials| Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
+| urls         | JSON       | Required if file not provided: Urls with data. Send them as JSON Array.
+| file         | String     | Required if urls not provided: You can also upload an image or video from your local filesystem.
+| model        | String     | Optional: If you'd like to get tags for an image or video using a different model, you can do so by passing in a model parameter. If you omit this parameter, the API will use the default model for your application.
+| tagsLanguage | String     | Optional: By default this API call returns tags in English. You can change this default setting on the applications page or can pass in a language parameter
+| selectClasses| String     | Optional: If you'd like to get the probability of a certain tag or tags, you can specify them in the  request using the select_classes parameter.
 
 ### Urls format: 
 Single url:
@@ -53,14 +53,14 @@ The feedback endpoint provides the ability to give feedback to the API about ima
 
 | Field           | Type       | Description
 |-----------------|------------|----------
-| accessToken     | credentials| This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
-| docIds          | String     | Valid docids or url.
-| url             | String     | valid url or docids.
-| addTags         | String     | Tags to add.
-| removeTags      | String     | Tags to remove.
-| similarDocids   | String     | Comma-separated list of url or docids that are similar to the input.
-| dissimilarDocids| String     | Comma-separated list of url or docids that are dissimilar to the input.
-| searchClick     | String     | Comma-separated list of search terms that generated the search result.
+| accessToken     | credentials| Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
+| docIds          | String     | Required if url not provided: valid docids.
+| url             | String     | Required if docIds not provided: valid url.
+| addTags         | String     | Required: Tags to add.
+| removeTags      | String     | Optional: Tags to remove.
+| similarDocids   | String     | Optional: Comma-separated list of url or docids that are similar to the input.
+| dissimilarDocids| String     | Optional: Comma-separated list of url or docids that are dissimilar to the input.
+| searchClick     | String     | Optional: Comma-separated list of search terms that generated the search result.
 
 
 ## Clarifai.getDominantColors
@@ -68,8 +68,8 @@ The feedback endpoint provides the ability to give feedback to the API about ima
 
 | Field      | Type       | Description
 |------------|------------|----------
-| accessToken| credentials| This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
-| url        | String     | File url.
+| accessToken| credentials| Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
+| url        | String     | Required: File url.
 
 
 ## Clarifai.getInfo
@@ -77,7 +77,7 @@ The info endpoint returns the current API details as well as any usage limits yo
 
 | Field      | Type       | Description
 |------------|------------|----------
-| accessToken| credentials| This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
+| accessToken| credentials| Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
 
 
 ## Clarifai.getLanguages
@@ -85,7 +85,7 @@ The info/languages endpoint returns all the languages that the tag API call supp
 
 | Field      | Type       | Description
 |------------|------------|----------
-| accessToken| credentials| This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
+| accessToken| credentials| Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
 
 
 ## Clarifai.getUsage
@@ -93,5 +93,5 @@ The usage endpoint returns your API usage for the current month and hour.
 
 | Field      | Type       | Description
 |------------|------------|----------
-| accessToken| credentials| This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
+| accessToken| credentials| Required: This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
 

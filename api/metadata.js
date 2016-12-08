@@ -2,7 +2,8 @@ module.exports.do = (req, res) => {
 res.status(200).send({
   "package": "Clarifai",
   "tagline": "Clarifai API Package",
-  "description": "Build amazing apps with the world’s best image and video recognition API.",
+  "keywords": ["AI", "API", "artificial", "image", "intelligence", "learning", "machine", "media", "networking", "neural", "recognition", "video", "visual"],
+  "description": "Search and sort images and video with universal tags.",
   "image": "https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAkRAAAAJDc4ZDU2MjRmLWI2N2MtNGI3YS05NDhiLWVjMmU4N2IzOGE3OA.png",
   "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-Clarifai-Package",
   "accounts": {
@@ -19,11 +20,13 @@ res.status(200).send({
         {
           "name": "clientId",
           "type": "String",
+          "required": true,
           "info": "Client Id This identifies which application is trying to access the API. This is unique and generated once for each application in your account.."
         },
         {
           "name": "clientSecret",
           "type": "String",
+          "required": true,
           "info": "This provides security when authorizing with the API. This is unique and generated once for each application in your account."
         }
       ],
@@ -45,6 +48,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
+          "required": true,
           "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         },
         {
@@ -91,6 +95,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
+          "required": true,
           "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         },
         {
@@ -147,11 +152,13 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
+          "required": true,
           "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         },
         {
           "name": "url",
           "type": "String",
+          "required": true,
           "info": "File url."
         }
       ],
@@ -173,6 +180,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
+          "required": true,
           "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         }
       ],
@@ -194,6 +202,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
+          "required": true,
           "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         }
       ],
@@ -215,6 +224,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
+          "required": true,
           "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis."
         }
       ],

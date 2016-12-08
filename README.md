@@ -10,16 +10,7 @@ Build amazing apps with the world’s best image and video recognition API.
 3. Copy and save your `client_id and` and `client_secret`
 4. Press **Generate Access Token** button or use [getAccessToken](#getAccessToken) method.
 
-## TOC: 
-* [getAccessToken](#getAccessToken)
-* [getTags](#getTags)
-* [provideFeedback](#provideFeedback)
-* [getDominantColors](#getDominantColors)
-* [getInfo](#getInfo)
-* [getLanguages](#getLanguages)
-* [getUsage](#getUsage)
- 
-<a name="getAccessToken"/>
+
 ## Clarifai.getAccessToken
 Authentication to the API is handled using OAuth2 client credentials. Each application you create has a unique Client ID and Client Secret which you will use to exchange for an Access Token. You then use this Access Token to make authorized API calls.
 
@@ -28,7 +19,7 @@ Authentication to the API is handled using OAuth2 client credentials. Each appli
 | clientId    | String| Client Id This identifies which application is trying to access the API. This is unique and generated once for each application in your account..
 | clientSecret| String| This provides security when authorizing with the API. This is unique and generated once for each application in your account.
 
-<a name="getTags"/>
+
 ## Clarifai.getTags
 The tag endpoint is used to tag the contents of your images or videos. Data is input into our system, processed with our deep learning platform and a list of tags is returned. Typical process times are in the milliseconds.
 
@@ -56,7 +47,7 @@ Multiple urls:
 }
 ```
 
-<a name="provideFeedback"/>
+
 ## Clarifai.provideFeedback
 The feedback endpoint provides the ability to give feedback to the API about images and videos that were previously tagged. This is typically used to correct errors made by our deep learning platform. Each piece of feedback helps our system learn better. Please try and provide feedback whenever you see errors.
 
@@ -71,7 +62,7 @@ The feedback endpoint provides the ability to give feedback to the API about ima
 | dissimilarDocids| String     | Comma-separated list of url or docids that are dissimilar to the input.
 | searchClick     | String     | Comma-separated list of search terms that generated the search result.
 
-<a name="getDominantColors"/>
+
 ## Clarifai.getDominantColors
 (BETA) The color endpoint is used to retrieve the dominant colors present in your images or videos. Color values are returned in the hex format. A density value is also returned to let you know how much of the color is present. In addition, colors are also mapped to their closest W3C counterparts.
 
@@ -80,7 +71,7 @@ The feedback endpoint provides the ability to give feedback to the API about ima
 | accessToken| credentials| This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
 | url        | String     | File url.
 
-<a name="getInfo"/>
+
 ## Clarifai.getInfo
 The info endpoint returns the current API details as well as any usage limits your account has.
 
@@ -88,7 +79,7 @@ The info endpoint returns the current API details as well as any usage limits yo
 |------------|------------|----------
 | accessToken| credentials| This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
 
-<a name="getLanguages"/>
+
 ## Clarifai.getLanguages
 The info/languages endpoint returns all the languages that the tag API call supports.
 
@@ -96,7 +87,7 @@ The info/languages endpoint returns all the languages that the tag API call supp
 |------------|------------|----------
 | accessToken| credentials| This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.
 
-<a name="getUsage"/>
+
 ## Clarifai.getUsage
 The usage endpoint returns your API usage for the current month and hour.
 

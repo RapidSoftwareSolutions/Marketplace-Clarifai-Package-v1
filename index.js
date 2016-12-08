@@ -38,6 +38,7 @@ for(let route in API) {
             r.callback          = 'success';
             r.contextWrites[to] = JSON.parse(response);
         } catch(e) {
+            console.log(e)
             r.callback          = 'error';
             r.contextWrites[to] =  typeof e == 'object' ? e.message ? e.message : e : e;
         }

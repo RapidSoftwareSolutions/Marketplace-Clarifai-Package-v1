@@ -19,13 +19,13 @@ res.status(200).send({
         {
           "name": "clientId",
           "type": "String",
-          "info": "Client Id This identifies which application is trying to access the API. This is unique and generated once for each application in your account..",,
+          "info": "Client Id This identifies which application is trying to access the API. This is unique and generated once for each application in your account..",
           "required": true
         },
         {
           "name": "clientSecret",
           "type": "String",
-          "info": "This provides security when authorizing with the API. This is unique and generated once for each application in your account.",,
+          "info": "This provides security when authorizing with the API. This is unique and generated once for each application in your account.",
           "required": true
         }
       ],
@@ -49,7 +49,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",
           "required": true
         },
         {
@@ -103,7 +103,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",
           "required": true
         },
         {
@@ -121,7 +121,7 @@ res.status(200).send({
         {
           "name": "addTags",
           "type": "String",
-          "info": "Tags to add.",,
+          "info": "Tags to add.",
           "required": true
         },
         {
@@ -169,13 +169,13 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",
           "required": true
         },
         {
           "name": "url",
           "type": "String",
-          "info": "File url.",,
+          "info": "File url.",
           "required": true
         }
       ],
@@ -199,7 +199,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",
           "required": true
         }
       ],
@@ -223,7 +223,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",
           "required": true
         }
       ],
@@ -247,7 +247,7 @@ res.status(200).send({
         {
           "name": "accessToken",
           "type": "credentials",
-          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",,
+          "info": "This is used to authorize your access to the API. Access tokens expire regularly and must be renewed on an ongoing basis.",
           "required": true
         }
       ],
